@@ -21,6 +21,10 @@ const Field = styled.input`
   color: #777;
 `;
 
+const Checkbox = styled.input`
+  margin-right: 0.3em;
+`;
+
 const Submit = Field.extend`
   background: #777;
   color: #EEE;
@@ -31,7 +35,8 @@ export default class DrunkForm extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     this.props.onSubmit(event.target.steps.value,
-                        event.target.reps.value);
+                        event.target.reps.value,
+                        event.target.drawPaths.checked);
   }
 
   render(){
@@ -50,6 +55,13 @@ export default class DrunkForm extends React.Component {
           type='text'
           defaultValue={this.props.reps}
         />
+
+        <Checkbox
+          name="drawPaths"
+          type="checkbox"
+          defaultChecked={this.props.drawPaths}
+        />
+        Draw last 10 repetitions. Slow but pretty.
 
         <Submit type="submit" value='REPROCESS'/>
       </Form>

@@ -25,6 +25,7 @@ class Index extends React.Component {
     this.state = {
       steps: 10,
       reps: 1,
+      drawPaths: true,
       paths: [[[0,0]]],
     };
   }
@@ -33,7 +34,7 @@ class Index extends React.Component {
     this.process(this.state.steps, this.state.reps);
   }
 
-  process(steps, reps){
+  process(steps, reps, drawPaths=true){
     steps = Math.max(steps, 1);
     reps = Math.max(reps, 1);
 
@@ -43,9 +44,7 @@ class Index extends React.Component {
       paths.push(path);
     } 
 
-    this.setState({steps, reps, paths});
-
-    console.log(this.state);
+    this.setState({steps, reps, drawPaths, paths});
   }
 
   render(){
@@ -55,9 +54,10 @@ class Index extends React.Component {
         <DrunkForm
           steps={this.state.steps}
           reps={this.state.reps}
-          onSubmit={(steps, reps) => this.process(steps, reps)}
+          drawPaths={this.state.drawPaths}
+          onSubmit={(steps, reps, drawPaths) => this.process(steps, reps, drawPaths)}
         />
-        <PathGraph paths={this.state.paths.slice(-10)} />
+        {this.state.drawPaths && <PathGraph paths={this.state.paths.slice(-10)} />}
       </Container>
     );
   }

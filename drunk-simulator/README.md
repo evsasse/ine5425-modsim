@@ -35,6 +35,8 @@ e quando o formulário é submetido. Ela garante que as váriaveis `steps` e `re
 
 ### `DrunkForm.jsx`
 
+![alt text](http://i.imgur.com/UoNKWGF.png "Imagem do formulário")
+
 Contém o formulário para editar as váriaveis de estado `steps`, `reps`, `drawPaths` e `drawDistances`.
 Também confirma a decisão do usuário de gerar o gráficos do caminhos no caso de haver mais de 100 passos,
 e de gerar o gráfico de distâncias no caso de haver mais de 500 passos, por motivos de performance.

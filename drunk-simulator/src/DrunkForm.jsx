@@ -34,9 +34,28 @@ const Submit = Field.extend`
 export default class DrunkForm extends React.Component {
   onSubmit(event) {
     event.preventDefault();
-    this.props.onSubmit(event.target.steps.value,
-                        event.target.reps.value,
-                        event.target.drawPaths.checked);
+
+    const steps = event.target.steps.value;
+    const reps = event.target.reps.value;
+    let drawPaths = event.target.drawPaths.checked;
+    let drawDistances = event.target.drawDistances.checked;
+
+    if(drawPaths && steps > 100){
+      if(!window.confirm('Are you sure you want to draw paths with more than 100 steps? It can be VERY slow!')){
+        return;
+      }
+    }
+
+    if(drawDistances && steps > 500){
+      if(!window.confirm('Are you sure you want to draw distances with more than 500 steps? It can be VERY slow!')){
+        return;
+      }
+    }
+
+    this.props.onSubmit(steps,
+                        reps,
+                        drawPaths,
+                        drawDistances);
   }
 
   render(){
@@ -56,12 +75,23 @@ export default class DrunkForm extends React.Component {
           defaultValue={this.props.reps}
         />
 
-        <Checkbox
-          name="drawPaths"
-          type="checkbox"
-          defaultChecked={this.props.drawPaths}
-        />
-        Draw paths. Slow but pretty.
+        <div>
+          <Checkbox
+            name="drawPaths"
+            type="checkbox"
+            defaultChecked={this.props.drawPaths}
+          />
+          Draw paths. Slow if steps > 100.
+        </div>
+
+        <div>
+          <Checkbox
+            name="drawDistances"
+            type="checkbox"
+            defaultChecked={this.props.drawPaths}
+          />
+          Draw distances. Slow if steps > 500.
+        </div>
 
         <Submit type="submit" value='SIMULATE AGAIN'/>
       </Form>

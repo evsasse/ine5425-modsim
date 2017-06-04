@@ -48,7 +48,7 @@ de acordo com a descrição do trabalho, onde um ângulo é sorteado a cada pass
 
 ### `DiffHistogram.jsx`
 
-![alt text](http://i.imgur.com/YXFeYWO.png "Imagem do formulário")
+![alt text](http://i.imgur.com/YXFeYWO.png "Imagem do histograma")
 
 Mostra gráfico de histograma, conforme a descrição do trabalho, usando a biblioteca Chart.js.
 Recebe as variáveis de estado, `paths` e `steps`, onde `paths` contém cada um dos caminhos calculados.
@@ -62,6 +62,8 @@ assim como os valores mínimo e máximo de cada classe são utilizados para dese
 Esse gráfico só é mostrado caso haja mais de uma classe, ou seja, o número de repetições seja pelo menos 4.
 
 ### `PathGraph.jsx`
+
+![alt text](http://i.imgur.com/fMo8Mp9.png "Imagem dos caminhos")
 
 Mostra o gráfico com os caminhos gerados. Apenas os 10 últimos caminhos são mostrados por questão de performance e legibilidade.
 Utiliza a biblioteca JSXGraph. Possui problemas de performance no caso de caminhos com mais de 100 passos.

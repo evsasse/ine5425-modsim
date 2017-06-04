@@ -49,12 +49,27 @@ de acordo com a descrição do trabalho, onde um ângulo é sorteado a cada pass
 Mostra gráfico de histograma, conforme a descrição do trabalho, usando a biblioteca Chart.js.
 Recebe as variáveis de estado, `paths` e `steps`, onde `paths` contém cada um dos caminhos calculados.
 Pelo número de caminhos calculados obtemos o número de classes que o histograma deve conter.
-E utilizando o teorema de pitágoras obtemos a distância do posição final de cada caminho até a origem,
+E utilizando o teorema de pitágoras obtemos a distância da posição final, de cada caminho, até a origem,
 e então a diferença para o valor esperado(`sqrt(steps)`).
 O tamanho de cada classe é calculado usando as menores e maiores diferenças obtidas.
 
 Cada um dos caminhos é então colocado em uma das classes. E o número de caminhos que foi colocado em cada classe,
-assim como os valores mínimo e máximo de cada classe sça utilizados para desenhar o gráfico.
+assim como os valores mínimo e máximo de cada classe são utilizados para desenhar o gráfico.
 Esse gráfico só é mostrado caso haja mais de uma classe, ou seja, o número de repetições seja pelo menos 4.
 
 ### `PathGraph.jsx`
+
+Mostra o gráfico com os caminhos gerados. Apenas os 10 últimos caminhos são mostrados por questão de performance e legibilidade.
+Utiliza a biblioteca JSXGraph. Possui problemas de performance no caso de caminhos com mais de 100 passos.
+Também faz todo o seu trabalho apenas recebendo as váriveis de estado `steps` e `paths`. Os `steps` são usados para saber qual deve ser
+"zoom" dado no gráfico. Cria um novo gráfico na tela e utiliza a função `drawPath` de `utils/graphDrawer.js` para cada caminho no gráfico.
+
+Esse gráfico pode ser escondido mudando a váriavel `drawPaths` para falso. Permitindo o uso de valores maiores para o número de passos
+com menos problemas de performance.
+
+### `utils/graphDrawer.js`
+
+Disponibiliza a função `drawPath` utilizanda por `PathGraph.jsx`, essa função chama as funções internas da biblioteca JSXGraph para
+desenhar os pontos de cada passo e uma linha entre eles.
+
+### ``

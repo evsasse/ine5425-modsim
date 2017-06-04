@@ -86,4 +86,6 @@ Mostra a comparação da distância em cada ponto de cada caminho e o esperado(`
 
 ### `DiffTable.jsx`
 
+![alt text](http://i.imgur.com/EEoraSE.png "Imagem das diferenças")
+
 Mostra um tabela com as distâncias finais e a diferença para o valor esperado, para as últimas 100 repetições. A distância final de cada caminho é calculada pelo teorema de pitágoras.

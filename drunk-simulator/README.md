@@ -48,6 +48,8 @@ de acordo com a descrição do trabalho, onde um ângulo é sorteado a cada pass
 
 ### `DiffHistogram.jsx`
 
+![alt text](http://i.imgur.com/YXFeYWO.png "Imagem do formulário")
+
 Mostra gráfico de histograma, conforme a descrição do trabalho, usando a biblioteca Chart.js.
 Recebe as variáveis de estado, `paths` e `steps`, onde `paths` contém cada um dos caminhos calculados.
 Pelo número de caminhos calculados obtemos o número de classes que o histograma deve conter.

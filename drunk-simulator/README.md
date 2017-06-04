@@ -72,4 +72,10 @@ com menos problemas de performance.
 Disponibiliza a função `drawPath` utilizanda por `PathGraph.jsx`, essa função chama as funções internas da biblioteca JSXGraph para
 desenhar os pontos de cada passo e uma linha entre eles.
 
-### ``
+### `DistanceChart.jsx`
+
+Mostra a comparação da distância em cada ponto de cada caminho e o esperado(`sqrt(n)`), utilizando a biblioteca Chart.js. Também mostra apenas os últimos 10 caminhos por questões de performance e legibilidade. Para cada ponto de cada caminho é desenhado a distância da origem calculada pelo teorema de pitágoras.
+
+### `DiffTable.jsx`
+
+Mostra um tabela com as distâncias finais e a diferença para o valor esperado, para as últimas 100 repetições. A distância final de cada caminho é calculada pelo teorema de pitágoras.

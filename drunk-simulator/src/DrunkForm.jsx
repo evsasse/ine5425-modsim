@@ -61,9 +61,9 @@ export default class DrunkForm extends React.Component {
           type="checkbox"
           defaultChecked={this.props.drawPaths}
         />
-        Draw last 10 repetitions. Slow but pretty.
+        Draw paths. Slow but pretty.
 
-        <Submit type="submit" value='REPROCESS'/>
+        <Submit type="submit" value='SIMULATE AGAIN'/>
       </Form>
     );
   }

@@ -5,6 +5,9 @@ import styled from 'styled-components';
 import './index.css';
 
 import DrunkForm from './DrunkForm.jsx';
+import PathGraph from './PathGraph.jsx';
+
+import {createPath} from './utils/pathGenerator.js';
 
 const Container = styled.div`
   width: 1000px;
@@ -21,12 +24,28 @@ class Index extends React.Component {
     super(props);
     this.state = {
       steps: 10,
-      reps: 10,
+      reps: 1,
+      paths: [[[0,0]]],
     };
   }
 
+  componentDidMount(){
+    this.process(this.state.steps, this.state.reps);
+  }
+
   process(steps, reps){
-    window.alert(`steps: ${steps}; reps: ${reps}`);
+    steps = Math.max(steps, 1);
+    reps = Math.max(reps, 1);
+
+    const paths = [];
+    for(let i = 0; i < reps; i++){
+      const path = createPath(steps);
+      paths.push(path);
+    } 
+
+    this.setState({steps, reps, paths});
+
+    console.log(this.state);
   }
 
   render(){
@@ -38,6 +57,7 @@ class Index extends React.Component {
           reps={this.state.reps}
           onSubmit={(steps, reps) => this.process(steps, reps)}
         />
+        <PathGraph paths={this.state.paths.slice(-10)} />
       </Container>
     );
   }

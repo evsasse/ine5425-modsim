@@ -82,7 +82,13 @@ desenhar os pontos de cada passo e uma linha entre eles.
 
 ![alt text](http://i.imgur.com/2K0GpfY.png "Imagem das distâncias")
 
-Mostra a comparação da distância em cada ponto de cada caminho e o esperado(`sqrt(n)`), utilizando a biblioteca Chart.js. Também mostra apenas os últimos 10 caminhos por questões de performance e legibilidade. Sofre de problemas de performance a partir de 500 passos. Para cada ponto de cada caminho é desenhado a distância da origem calculada pelo teorema de pitágoras.
+Mostra a comparação da distância em cada ponto de cada caminho e o esperado(`sqrt(n)`), utilizando a biblioteca Chart.js. Também mostra apenas os últimos 10 caminhos por questões de performance e legibilidade. Faz todo o cálculo utilizando das variáveis de estado `paths` e `steps` que recebe de `Index.jsx`. Sofre de problemas de performance a partir de 500 passos. Para cada ponto de cada caminho é desenhado a distância da origem calculada pelo teorema de pitágoras.
+
+### `AverageChart.jsx`
+
+![alt text](http://i.imgur.com/tu14HU7.png "Imagem da média das distâncias")
+
+Mostra a comparação da média das distâncias de todos os caminhos e o esperado(`sqrt(n)`), utilizando a biblioteca Chart.js. Também faz todo o cálculo utilizando das variáveis de estado `paths` e `steps`. Para cada ponto de cada caminho a distância é calculada com o teorema de pitágoras, a média da distância que cada passo estava, entre todos os os caminhos, é então calculada.
 
 ### `DiffTable.jsx`
 

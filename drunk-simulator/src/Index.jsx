@@ -7,6 +7,7 @@ import './index.css';
 import DrunkForm from './DrunkForm.jsx';
 import PathGraph from './PathGraph.jsx';
 import DistanceChart from './DistanceChart.jsx';
+import AverageChart from './AverageChart.jsx';
 import DiffHistogram from './DiffHistogram.jsx';
 import DiffTable from './DiffTable.jsx';
 
@@ -44,7 +45,7 @@ class Index extends React.Component {
       reps: 3,
       drawPaths: true,
       drawDistances: true,
-      paths: [[[0,0]],[[0,0]],[[0,0]],[[0,0]],[[0,0]]],
+      paths: [],
     };
   }
 
@@ -115,6 +116,16 @@ class Index extends React.Component {
             />
           </GraphContainer>
         }
+
+        <GraphContainer>
+            <Subtitle>Average of distance during path</Subtitle>
+            <p>Shows the average of distances during the paths all repetitions on a line chart.
+               Comparing it to the expected sqrt(n).</p>
+            <AverageChart
+              steps={this.state.steps}
+              paths={this.state.paths}
+            />
+          </GraphContainer>
 
         <GraphContainer>
           <Subtitle>Final distances</Subtitle>

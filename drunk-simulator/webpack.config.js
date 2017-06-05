@@ -1,6 +1,9 @@
 var path = require('path');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/Index.jsx',
@@ -17,11 +20,19 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      use: [ 'style-loader', 'css-loader' ],
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: 'css-loader'
+      }),
     }],
   },
 
   plugins: [
-    new HtmlWebpackPlugin(),
+    new UglifyJSPlugin(),
+    new ExtractTextPlugin('styles.css'),
+    new HtmlWebpackPlugin({
+      inlineSource: '.(js|css)$' // embed all javascript and css inline
+    }),
+    new HtmlWebpackInlineSourcePlugin()
   ],
 };
